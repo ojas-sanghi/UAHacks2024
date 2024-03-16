@@ -36,3 +36,14 @@ func _on_request_completed(result, response_code, headers, body):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+
+
+## now
+# ai to generate prompts for the iamge creator
+# figure out image creator api
+
+# create node to show image here
+
+
+# money system
