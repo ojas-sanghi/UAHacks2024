@@ -1,13 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5pa5d366cy0l"]
+[gd_scene load_steps=3 format=3 uid="uid://c5pa5d366cy0l"]
 
 [ext_resource type="Texture2D" uid="uid://cknvjx1khdds2" path="res://fotor-ai-2024031519140.jpg" id="1_p7ec8"]
+[ext_resource type="Texture2D" uid="uid://bdmatmhi472s" path="res://icons8-monday-48.png" id="2_6o6ej"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 offset_left = 0.00012207
 offset_top = 6.10352e-05
 offset_right = 2688.0
 offset_bottom = 1536.0
 scale = Vector2(0.427, 0.428)
 texture = ExtResource("1_p7ec8")
+
+[node name="Date" type="TextureRect" parent="."]
+offset_left = 1044.0
+offset_right = 1094.0
+offset_bottom = 50.0
+scale = Vector2(2, 2)
+texture = ExtResource("2_6o6ej")
