@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dasy0flyeo1cp"]
+
+[ext_resource type="Script" path="res://word_value.gd" id="1_y042w"]
+
+[node name="WordValue" type="Node"]
+script = ExtResource("1_y042w")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
