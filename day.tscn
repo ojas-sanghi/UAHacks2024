@@ -1,15 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5pa5d366cy0l"]
+[gd_scene load_steps=7 format=3 uid="uid://c5pa5d366cy0l"]
 
 [ext_resource type="Texture2D" uid="uid://cknvjx1khdds2" path="res://fotor-ai-2024031519140.jpg" id="1_p7ec8"]
 [ext_resource type="Texture2D" uid="uid://bdmatmhi472s" path="res://icons8-monday-48.png" id="2_6o6ej"]
 [ext_resource type="Script" path="res://FlowContainer.gd" id="3_f1n2g"]
 [ext_resource type="Texture2D" uid="uid://cn5f8j2mn85kq" path="res://light-blue-rounded-square.svg.hi.png" id="4_7igko"]
+[ext_resource type="Texture2D" uid="uid://cqhuy7hvirnhs" path="res://blue-neon-button-glowing-neon-button-png.webp" id="5_v5oxr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_woj12"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Background" type="TextureRect" parent="."]
-offset_left = 0.00012207
-offset_top = 6.10352e-05
 offset_right = 2688.0
 offset_bottom = 1536.0
 scale = Vector2(0.427, 0.428)
@@ -43,3 +44,21 @@ expand_mode = 1
 [node name="Label" type="Label" parent="FlowContainer"]
 layout_mode = 2
 text = "            Letters          "
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -58.0
+offset_top = 515.0
+offset_right = 742.0
+offset_bottom = 1015.0
+scale = Vector2(1.6, 0.3)
+texture = ExtResource("5_v5oxr")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+z_index = 1
+offset_left = 92.0
+offset_top = 573.0
+offset_right = 1092.0
+offset_bottom = 603.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_woj12")
+placeholder_text = "Type Here
+"
