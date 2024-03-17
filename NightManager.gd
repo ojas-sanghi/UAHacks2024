@@ -18,6 +18,8 @@ func _ready():
 	
 	sell.pressed.connect(sell_current_art)
 	
+	$"TabContainer/Sell Artwork/VBoxContainer/MoneyLabel".text = "Money: " + str(PlayerData.money)
+	
 	display_user_artwork()
 
 func _process(delta):
@@ -52,6 +54,7 @@ func sell_current_art():
 	
 	PlayerData.money += sell_amount
 	PlayerData.owned_art.remove_at(current_user_art_index)
+	$"TabContainer/Sell Artwork/VBoxContainer/MoneyLabel".text = "Money: " + str(PlayerData.money)
 	
 	if current_user_art_index > 0:
 		current_user_art_index -= 1
