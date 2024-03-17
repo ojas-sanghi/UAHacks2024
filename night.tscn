@@ -36,10 +36,8 @@ offset_right = 1907.0
 offset_bottom = 1061.0
 theme_override_font_sizes/font_size = 36
 tab_alignment = 1
-current_tab = 1
 
 [node name="SellArtworkTab" type="MarginContainer" parent="TabContainer"]
-visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
@@ -89,6 +87,7 @@ theme_override_font_sizes/font_size = 48
 text = "Sell Current Artwork"
 
 [node name="StealArtworkTab" type="MarginContainer" parent="TabContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20

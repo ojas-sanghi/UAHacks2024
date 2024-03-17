@@ -124,6 +124,7 @@ func display_user_artwork():
 	
 func sell_current_art():
 	if PlayerData.owned_art.size() == 0:
+		show_alert("No art owned", "You do not own any other artwork. You can attempt to steal art, or proceed to the next day.")
 		return
 	elif actions <= 0:
 		return
@@ -147,7 +148,7 @@ func show_alert(title, text):
 	dialog.dialog_text = text
 	dialog.title = title
 	dialog.min_size = Vector2(800, 200)
-	dialog.get_label().add_theme_font_size_override("font_size", 48)
+	dialog.get_label().add_theme_font_size_override("font_size", 40)
 	dialog.get_ok_button().set_custom_minimum_size(Vector2(400, 100))
 	dialog.get_ok_button().add_theme_font_size_override("font_size", 36)
 	add_child(dialog)
