@@ -106,7 +106,5 @@ func _on_ai_painting_req_completed(result, response_code, headers, body):
 		sprite.scale = Vector2(0.5, 0.5)
 		
 		add_child(sprite)
-		
-		# tood; resize froem 1024 to 512
 	else:
 		print("The request failed.")

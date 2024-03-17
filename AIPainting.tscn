@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c86ryifvxc8x5"]
+
+[ext_resource type="Script" path="res://AIPainting.gd" id="1_nk8qg"]
+
+[node name="AIPainting" type="TextureRect"]
+script = ExtResource("1_nk8qg")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
