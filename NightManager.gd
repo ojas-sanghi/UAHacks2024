@@ -8,6 +8,8 @@ func _ready():
 	update_actions_label()
 	update_money_label()
 	
+	$EndNightButton.pressed.connect(end_current_night)
+	
 	# testing
 	PlayerData.owned_art.append("genimg.jpg")
 	
@@ -26,9 +28,34 @@ func _ready():
 	# Steal
 	var steal_input = $TabContainer/StealArtworkTab/VBoxContainer/StealGuessField
 	steal_input.text_submitted.connect(accept_steal_guess)
+	
+	display_ai_artwork()
 
-func _process(delta):
+func end_current_night():
+	# TODO: implement for both the manual button and the dialog button
 	pass
+
+func use_action():
+	actions -= 1
+	update_actions_label()
+	
+	if actions == 0:
+		var dialog = AcceptDialog.new()
+		
+		dialog.dialog_text = "You have run out of actions for tonight. Click OK to proceed to the next day."
+		dialog.title = "No actions left!"
+		dialog.min_size = Vector2(800, 200)
+		
+		dialog.get_label().add_theme_font_size_override("font_size", 48)
+		
+		var d_button = dialog.get_ok_button()
+		d_button.set_custom_minimum_size(Vector2(400, 100))
+		d_button.add_theme_font_size_override("font_size", 36)
+		d_button.text = "Proceed"
+		d_button.pressed.connect(end_current_night)
+		
+		add_child(dialog)
+		dialog.popup_centered()
 
 func update_actions_label():
 	$CenterContainer/ActionsLabel.text = "Actions: " + str(actions)
@@ -37,26 +64,44 @@ func update_money_label():
 	$"TabContainer/SellArtworkTab/VBoxContainer/MoneyLabel".text = "Money: " + str(PlayerData.money)
 	
 func accept_steal_guess(guess):
+	if actions <= 0:
+		return
+		
 	var steal_input = $TabContainer/StealArtworkTab/VBoxContainer/StealGuessField
 	steal_input.clear()
 
 	# TODO: need to update with the real prompts
-	var real_prompt = "test"
+	var current = AiArtData.artwork[0]
+	var real_prompt = AiArtData.art_prompts[current]
+	
+	# doing this before the logic so the dialog shows up first if this is the last action
+	use_action()
 	
 	if guess.to_lower() == real_prompt.to_lower():
-		var art_file = "test_steal.jpg"
-		PlayerData.owned_art.append(art_file)
+		PlayerData.owned_art.append(current)
+		AiArtData.remove_first()
+		display_ai_artwork()
 		
-		show_alert("Success!", "You successfully stole a piece of artwork!")
+		show_alert("Success!", "You successfully stole a piece of artwork.")
 	else:
 		var loss = min(PlayerData.money, randi_range(50, 100));
 		
 		PlayerData.money -= loss
 		
-		show_alert("Fail!", "You failed to steal the artwork, and have been fined $" + str(loss) + "!")
-		
-	actions -= 1
-	update_actions_label()
+		show_alert("Fail!", "You failed to steal the artwork and have been fined $" + str(loss) + ".")
+	
+func display_ai_artwork():
+	var rect = $TabContainer/StealArtworkTab/VBoxContainer/StealTextureRect
+	
+	# this should never run since we'll have 50+ images at all times
+	if AiArtData.artwork.size() == 0:
+		rect.texture = null
+		return
+	
+	var file = "res://art_cache/" + AiArtData.artwork[0]
+	var image = Image.load_from_file(file)
+	var texture = ImageTexture.create_from_image(image)
+	rect.texture = texture
 	
 func shift_user_image_gallery(left: bool):
 	if (left && current_user_art_index == 0) || (!left && current_user_art_index == PlayerData.owned_art.size() - 1):
@@ -80,6 +125,8 @@ func display_user_artwork():
 func sell_current_art():
 	if PlayerData.owned_art.size() == 0:
 		return
+	elif actions <= 0:
+		return
 	
 	# TODO: need to get the AI-determined values
 	var sell_amount = randi_range(50, 100)
@@ -93,8 +140,7 @@ func sell_current_art():
 	
 	display_user_artwork()
 	
-	actions -= 1
-	update_actions_label()
+	use_action()
 	
 func show_alert(title, text):
 	var dialog = AcceptDialog.new()

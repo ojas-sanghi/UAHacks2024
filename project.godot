@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 PlayerData="*res://PlayerData.gd"
 AILoop="*res://AILoop.tscn"
 MarketTrend="*res://MarketTrend.gd"
+AiArtData="*res://AIArtData.gd"
 
 [display]
 
