@@ -5,10 +5,14 @@ func _ready():
 	$AIGenPrompt.request_completed.connect(_on_ai_gen_prompt_req_completed)
 	$AIPainting.request_completed.connect(_on_ai_painting_req_completed)
 	
-	get_word_value()
+var prompt_word := ""
+var gen_img: Sprite2D = null
 
-var word = "water bottle"
-
+func generate_image_from_prompt(word):
+	gen_img = null
+	prompt_word = word
+	# to get img, do `while (true): if (gen_img != null): <use img>`
+	
 func get_word_value():
 	var headers := ["x-api-key: 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", "anthropic-version: 2023-06-01", "content-type: application/json"]
 	var body := {
@@ -17,7 +21,7 @@ func get_word_value():
 		"temperature": 0,
 		"system": "There are 4 categories of value any word can be assigned to: \n\n- Trash\n- Common\n- Valuable\n- Exceptional\n\nJudge how \"valuable\" a given word is by that word's perceived value in the real world. I will give you words and your job is to judge how \"valuable\" they are and return to me which category they are in. Say nothing but the answer. Nothing but the one or two words.\n\nExample:\n\nPlastic bottle. Trash.\nWater bottle. Common.\nGold. Exceptional.\nMobile Phone. Valuable.\nAirPods. Valuable.\nBackpack. Common.\nPlants. Uncommon.\nLight bulb. Common.\nOil. Exceptional.\nWrappers. Trash.\nNapkins. Trash.\nChair. Common\nPerfume. Common.\nWatch. Common.\nExpensive watch. Valuable.\nPorsche. Exceptional.\n",
 		"messages": [
-			{"role": "user", "content": word}
+			{"role": "user", "content": prompt_word}
 		]
 	}
 	var body_string := JSON.stringify(body)
@@ -47,9 +51,9 @@ func get_ai_gen_prompt(value):
 		"model": "claude-3-haiku-20240307",
 		"max_tokens": 1000,
 		"temperature": 0,
-		"system": "Generate a detailed and high-quality AI image generation prompt for the Stable Diffusion model. I will give you a word or two around which to generate prompt. Make a prompt that generates art that would be \"valued\" according to society as the following value: " + value + ". \n\nReturn just the prompt in it's full form. Include nothing else. No text before or after. No quotes. Just the prompt.",
+		"system": "I will give you a word or two around which to generate an AI image generation prompt for the Stable Diffusion model. Generate a long, detailed, and high-quality model. Make a prompt that generates art that would be \"valued\" according to society as the following value: " + value + ". \n\nReturn just the prompt in it's full form. Include nothing else. No text before or after. No quotes. Just the prompt.",
 		"messages": [
-			{"role": "user", "content": word}
+			{"role": "user", "content": prompt_word}
 		]
 	}
 	var body_string := JSON.stringify(body)
@@ -98,6 +102,8 @@ func _on_ai_painting_req_completed(result, response_code, headers, body):
 		
 		var sprite = Sprite2D.new()
 		sprite.set_texture(texture)
+		
+		gen_img = sprite
 		
 		print(sprite.texture.get_width())
 		print(sprite.texture.get_height())

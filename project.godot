@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 PlayerData="*res://PlayerData.gd"
+AILoop="*res://AILoop.tscn"
+MarketTrend="*res://MarketTrend.gd"
 
 [display]
 
