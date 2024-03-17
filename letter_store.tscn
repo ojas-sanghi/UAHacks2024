@@ -5,17 +5,20 @@
 [node name="LetterStore" type="Node2D"]
 script = ExtResource("1_1dd3m")
 
-[node name="StoreGridContainer" type="GridContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 43.0
+offset_top = 421.0
+offset_right = 1876.0
+offset_bottom = 1031.0
+
+[node name="StoreGridContainer" type="GridContainer" parent="ScrollContainer"]
 layout_direction = 2
-offset_left = 42.0
-offset_top = 449.0
-offset_right = 1867.0
-offset_bottom = 1054.0
-size_flags_horizontal = 6
-size_flags_vertical = 6
-theme_override_constants/h_separation = 350
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 50
 theme_override_constants/v_separation = 50
-columns = 5
+columns = 10
 metadata/_edit_use_anchors_ = true
 
 [node name="InventoryFlowContainer" type="FlowContainer" parent="."]

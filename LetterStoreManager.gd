@@ -10,24 +10,31 @@ func _ready():
 	var money_label = get_child(2)
 	money_label.text = "Money: " + str(PlayerData.money)
 	
-	var store_grid = get_child(0)
-	var inventory_container = get_child(1)
+	var store_grid = $ScrollContainer/StoreGridContainer
+	var inventory_container = $InventoryFlowContainer
+	
+	var latest_trend = MarketTrend.latest_trend
+	
+	if (latest_trend == null):
+		await get_tree().create_timer(3.0).timeout
+		latest_trend = MarketTrend.latest_trend
 	
 	for l in PlayerData.LETTER_LIST:
 		# Set costs
-		LETTER_COSTS[l] = randi_range(50, 101)
+		LETTER_COSTS[l] = round(randi_range(25, 50) * MarketTrend.latest_trend_multiplier)
 		
 		# Add store buttons
 		var vbox = VBoxContainer.new()
 		var cost = Label.new()
 		cost.text = "Cost: " + str(LETTER_COSTS[l])
-		cost.add_theme_font_size_override("font_size", 42)
+		cost.add_theme_font_size_override("font_size", 30)
 		
 		var button = Button.new()
+		button.size
 		button.text = l
 		button.pressed.connect(handle_button_input.bind(l))
-		button.add_theme_font_size_override("font_size", 64)
-		button.set_custom_minimum_size(Vector2(275, 115))
+		button.add_theme_font_size_override("font_size", 40)
+		#button.set_custom_minimum_size(Vector2(275, 115))
 		
 		vbox.add_child(button)
 		vbox.add_child(cost)
