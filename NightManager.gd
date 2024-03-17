@@ -2,6 +2,7 @@ extends Node2D
 
 var actions = 3
 var current_user_art_index = 0
+var current_steal_image = ""
 
 func _ready():
 	update_actions_label()
@@ -10,9 +11,10 @@ func _ready():
 	# testing
 	PlayerData.owned_art.append("genimg.jpg")
 	
-	var left = $"TabContainer/Sell Artwork/VBoxContainer/HBoxContainer/LeftButton"
-	var right = $"TabContainer/Sell Artwork/VBoxContainer/HBoxContainer/RightButton"
-	var sell = $"TabContainer/Sell Artwork/VBoxContainer/SellCurrentButton"
+	# Sell
+	var left = $"TabContainer/SellArtworkTab/VBoxContainer/HBoxContainer/LeftButton"
+	var right = $"TabContainer/SellArtworkTab/VBoxContainer/HBoxContainer/RightButton"
+	var sell = $"TabContainer/SellArtworkTab/VBoxContainer/SellCurrentButton"
 	
 	left.pressed.connect(shift_user_image_gallery.bind(true))
 	right.pressed.connect(shift_user_image_gallery.bind(false))
@@ -20,6 +22,10 @@ func _ready():
 	sell.pressed.connect(sell_current_art)
 	
 	display_user_artwork()
+	
+	# Steal
+	var steal_input = $TabContainer/StealArtworkTab/VBoxContainer/StealGuessField
+	steal_input.text_submitted.connect(accept_steal_guess)
 
 func _process(delta):
 	pass
@@ -28,7 +34,29 @@ func update_actions_label():
 	$CenterContainer/ActionsLabel.text = "Actions: " + str(actions)
 	
 func update_money_label():
-	$"TabContainer/Sell Artwork/VBoxContainer/MoneyLabel".text = "Money: " + str(PlayerData.money)
+	$"TabContainer/SellArtworkTab/VBoxContainer/MoneyLabel".text = "Money: " + str(PlayerData.money)
+	
+func accept_steal_guess(guess):
+	var steal_input = $TabContainer/StealArtworkTab/VBoxContainer/StealGuessField
+	steal_input.clear()
+
+	# TODO: need to update with the real prompts
+	var real_prompt = "test"
+	
+	if guess.to_lower() == real_prompt.to_lower():
+		var art_file = "test_steal.jpg"
+		PlayerData.owned_art.append(art_file)
+		
+		show_alert("Success!", "You successfully stole a piece of artwork!")
+	else:
+		var loss = min(PlayerData.money, randi_range(50, 100));
+		
+		PlayerData.money -= loss
+		
+		show_alert("Fail!", "You failed to steal the artwork, and have been fined $" + str(loss) + "!")
+		
+	actions -= 1
+	update_actions_label()
 	
 func shift_user_image_gallery(left: bool):
 	if (left && current_user_art_index == 0) || (!left && current_user_art_index == PlayerData.owned_art.size() - 1):
@@ -38,14 +66,16 @@ func shift_user_image_gallery(left: bool):
 	display_user_artwork()
 
 func display_user_artwork():
+	var rect = $"TabContainer/SellArtworkTab/VBoxContainer/SellTextureRect"
+	
 	if PlayerData.owned_art.size() == 0:
-		$"TabContainer/Sell Artwork/VBoxContainer/TextureRect".texture = null
+		rect.texture = null
 		return
 		
-	var file = "res://user_art/" + PlayerData.owned_art[current_user_art_index]
+	var file = "res://art_cache/" + PlayerData.owned_art[current_user_art_index]
 	var image = Image.load_from_file(file)
 	var texture = ImageTexture.create_from_image(image)
-	$"TabContainer/Sell Artwork/VBoxContainer/TextureRect".texture = texture
+	rect.texture = texture
 	
 func sell_current_art():
 	if PlayerData.owned_art.size() == 0:
@@ -65,3 +95,14 @@ func sell_current_art():
 	
 	actions -= 1
 	update_actions_label()
+	
+func show_alert(title, text):
+	var dialog = AcceptDialog.new()
+	dialog.dialog_text = text
+	dialog.title = title
+	dialog.min_size = Vector2(800, 200)
+	dialog.get_label().add_theme_font_size_override("font_size", 48)
+	dialog.get_ok_button().set_custom_minimum_size(Vector2(400, 100))
+	dialog.get_ok_button().add_theme_font_size_override("font_size", 36)
+	add_child(dialog)
+	dialog.popup_centered()
