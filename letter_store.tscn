@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8q1t0nki57k2"]
+
+[ext_resource type="Script" path="res://LetterStoreManager.gd" id="1_1dd3m"]
+
+[node name="LetterStore" type="Node2D"]
+script = ExtResource("1_1dd3m")
+
+[node name="StoreGridContainer" type="GridContainer" parent="."]
+layout_direction = 2
+offset_left = 42.0
+offset_top = 449.0
+offset_right = 1867.0
+offset_bottom = 1054.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_constants/h_separation = 350
+theme_override_constants/v_separation = 50
+columns = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="InventoryFlowContainer" type="FlowContainer" parent="."]
+offset_left = 776.0
+offset_top = 31.0
+offset_right = 1846.0
+offset_bottom = 209.0
+theme_override_constants/h_separation = 60
+theme_override_constants/v_separation = 20
+
+[node name="MoneyLabel" type="Label" parent="."]
+offset_left = 58.0
+offset_top = 76.0
+offset_right = 347.0
+offset_bottom = 143.0
+theme_override_font_sizes/font_size = 48
+text = "Money: "
+
+[node name="InventoryLabel" type="Label" parent="."]
+offset_left = 439.0
+offset_top = 73.0
+offset_right = 676.0
+offset_bottom = 140.0
+theme_override_font_sizes/font_size = 48
+text = "Inventory:"
+
+[node name="LetterStoreLabel" type="Label" parent="."]
+offset_left = 38.0
+offset_top = 306.0
+offset_right = 327.0
+offset_bottom = 373.0
+theme_override_font_sizes/font_size = 48
+text = "Letter Store:"
