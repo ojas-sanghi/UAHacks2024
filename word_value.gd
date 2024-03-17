@@ -33,11 +33,6 @@ func _on_request_completed(result, response_code, headers, body):
 		print("The request failed.")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 
 ## now
 # ai to generate prompts for the iamge creator

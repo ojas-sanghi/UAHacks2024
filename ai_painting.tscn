@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c45qj1sladg1d"]
+
+[ext_resource type="Script" path="res://AIPainting.gd" id="1_op3yu"]
+[ext_resource type="Texture2D" uid="uid://be2x0nqej8c6y" path="res://icon.svg" id="2_wv18f"]
+
+[node name="AIPainting" type="TextureRect"]
+script = ExtResource("1_op3yu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(271, 268)
+scale = Vector2(4, 4)
+texture = ExtResource("2_wv18f")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
