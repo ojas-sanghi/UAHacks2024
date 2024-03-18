@@ -2,7 +2,6 @@ extends Node2D
 
 var actions = 3
 var current_user_art_index = 0
-var current_steal_image = ""
 
 func _ready():
 	update_actions_label()
@@ -98,7 +97,7 @@ func display_ai_artwork():
 		rect.texture = null
 		return
 	
-	var file = "res://art_cache/" + AiArtData.artwork[0]
+	var file = AiArtData.artwork[0]
 	var image = Image.load_from_file(file)
 	var texture = ImageTexture.create_from_image(image)
 	rect.texture = texture
@@ -117,7 +116,7 @@ func display_user_artwork():
 		rect.texture = null
 		return
 		
-	var file = "res://art_cache/" + PlayerData.owned_art[current_user_art_index]
+	var file = PlayerData.owned_art[current_user_art_index]
 	var image = Image.load_from_file(file)
 	var texture = ImageTexture.create_from_image(image)
 	rect.texture = texture
