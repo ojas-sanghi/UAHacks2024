@@ -28,8 +28,7 @@ func _ready():
 	display_ai_artwork()
 
 func end_current_night():
-	# TODO: implement for both the manual button and the dialog button
-	pass
+	DaySystem.start_new_day()
 
 func use_action():
 	actions -= 1
@@ -77,6 +76,9 @@ func accept_steal_guess(guess):
 		PlayerData.owned_art.append(current)
 		AiArtData.remove_first()
 		display_ai_artwork()
+		
+		if PlayerData.owned_art.size() == 0:
+			display_user_artwork()
 		
 		show_alert("Success!", "You successfully stole a piece of artwork.")
 	else:

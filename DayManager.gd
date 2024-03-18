@@ -7,7 +7,7 @@ func _ready():
 	
 	$LineEdit.grab_focus()
 	
-	$EndDayButton.pressed.connect(end_current_day)
+	$EndDayButton.pressed.connect(go_to_night)
 	
 	$LineEdit.text_submitted.connect(accept_input)
 	
@@ -18,9 +18,8 @@ func _ready():
 func show_letter_store():
 	SceneChanger.go_to_scene("res://letter_store.tscn")
 
-func end_current_day():
-	#TODO scene switching
-	pass
+func go_to_night():
+	SceneChanger.go_to_scene("res://night.tscn")
 	
 func accept_input(text):
 	$LineEdit.clear()

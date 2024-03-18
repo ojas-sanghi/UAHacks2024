@@ -6,8 +6,8 @@ func fade():
 
 func go_to_scene(scene_path):
 	await fade()
-	get_tree().change_scene(scene_path)
+	get_tree().change_scene_to_file(scene_path)
 
 func go_to_end_screen():
 	# Switch instantly, don't fade in or whatever
-	get_tree().change_scene("res://GameEnd.tscn")
+	get_tree().change_scene_to_file("res://GameEnd.tscn")

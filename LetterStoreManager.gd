@@ -5,7 +5,7 @@ var LETTER_COSTS = {}
 var inventory_nodes = {}
 
 func _ready():
-	PlayerData.money = 150 # testing
+	$ReturnButton.pressed.connect(return_to_day)
 	
 	var money_label = get_child(2)
 	money_label.text = "Money: " + str(PlayerData.money)
@@ -48,6 +48,9 @@ func _ready():
 		label.size.y = 10
 		inventory_nodes[l] = label
 		inventory_container.add_child(label)
+	
+func return_to_day():
+	SceneChanger.go_to_scene("res://day.tscn")
 	
 func handle_button_input(letter):
 	if PlayerData.money >= LETTER_COSTS[letter]:

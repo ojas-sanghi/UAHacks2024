@@ -52,3 +52,11 @@ offset_right = 327.0
 offset_bottom = 373.0
 theme_override_font_sizes/font_size = 48
 text = "Letter Store:"
+
+[node name="ReturnButton" type="Button" parent="."]
+offset_left = 1679.0
+offset_top = 975.0
+offset_right = 1908.0
+offset_bottom = 1055.0
+theme_override_font_sizes/font_size = 48
+text = "Return"

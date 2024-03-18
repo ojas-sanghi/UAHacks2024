@@ -22,6 +22,7 @@ AILoop="*res://AILoop.tscn"
 MarketTrend="*res://MarketTrend.gd"
 AiArtData="*res://AIArtData.gd"
 SceneChanger="*res://SceneChanger.tscn"
+DaySystem="*res://DaySystem.gd"
 
 [display]
 
