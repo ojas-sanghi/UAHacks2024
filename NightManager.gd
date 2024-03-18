@@ -9,6 +9,7 @@ var steal_shown_art = []
 func _ready():
 	update_actions_label()
 	update_money_label()
+	check_can_steal()
 	
 	$VBoxContainer/HBoxContainer/EndNightButton.pressed.connect(end_current_night)
 	$VBoxContainer/HBoxContainer/NightNumberLabel.text = "Night " + str(DaySystem.day_number)
@@ -60,7 +61,9 @@ func update_actions_label():
 	$VBoxContainer/HBoxContainer/CenterContainer/ActionsLabel.text = "Actions: " + str(actions)
 	
 func update_money_label():
-	$VBoxContainer/TabContainer/SellArtworkTab/VBoxContainer/MoneyLabel.text = "Money: " + str(PlayerData.money)
+	var money_text = "Money: " + str(PlayerData.money)
+	$VBoxContainer/TabContainer/SellArtworkTab/VBoxContainer/MoneyLabel.text = money_text
+	$VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/MoneyLabel.text = money_text
 	
 func accept_steal_guess(guess):
 	if actions <= 0:
@@ -90,6 +93,10 @@ func accept_steal_guess(guess):
 		PlayerData.money -= loss
 		
 		show_alert("Fail!", "You failed to steal the artwork and have been fined $" + str(loss) + ".")
+		
+		if PlayerData.money == 0:
+			$VBoxContainer/TabContainer.current_tab = 0
+			check_can_steal()
 	
 func display_ai_artwork():
 	var rng = RandomNumberGenerator.new()
@@ -152,6 +159,8 @@ func sell_current_art():
 	
 	display_user_artwork()
 	
+	check_can_steal()
+	
 	use_action()
 	
 func show_alert(title, text):
@@ -164,8 +173,9 @@ func show_alert(title, text):
 	dialog.get_ok_button().add_theme_font_size_override("font_size", 36)
 	add_child(dialog)
 	dialog.popup_centered()
-
-
+	
+func check_can_steal():
+	$VBoxContainer/TabContainer.set_tab_hidden(1, PlayerData.money == 0)
 
 func _on_button_pressed():
 	steal_selected_art = 0
