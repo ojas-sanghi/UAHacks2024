@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://f2ithhiie7xy"]
+[gd_scene load_steps=3 format=3 uid="uid://cm0j4r0ifp7yf"]
 
 [ext_resource type="Script" path="res://NightManager.gd" id="1_f3jum"]
 [ext_resource type="Texture2D" uid="uid://bdmatmhi472s" path="res://icons8-monday-48.png" id="1_wqdqo"]

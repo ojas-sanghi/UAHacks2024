@@ -42,9 +42,12 @@ def get_img_prompt(prompt, value):
 prompt_dict = {
 }
 
-with open("50prompts.txt", "r") as f:
+with open("archive/50prompts.txt", "r") as f:
     lines = f.readlines()
     i = 0
+    
+    art_prompts = {}
+    art_values = {}
     
     for l in lines:
         l = l.strip()
@@ -53,7 +56,7 @@ with open("50prompts.txt", "r") as f:
         
         prompt = l_spl[0]
         value = l_spl[1]
-        location = "assets/ai-img-" + str(i) + ".jpg"    
+        location = "res://assets/ai-img-" + str(i) + ".jpg"    
         
         # ai_prompt = get_img_prompt(prompt, value)
         # print(ai_prompt)
@@ -62,7 +65,11 @@ with open("50prompts.txt", "r") as f:
         #     "inputs": ai_prompt,
         # })
         
-        prompt_dict[prompt] = [value, location]
+        art_prompts[location] = prompt
+        art_values[location] = value
+        
+        
+        # prompt_dict[prompt] = [value, location]
         
         # image = Image.open(io.BytesIO(image_bytes))
         # image.show()
@@ -70,9 +77,14 @@ with open("50prompts.txt", "r") as f:
         # with open(location, "x") as f:
         #     image.save(location)
         
-        with open("50prompts.json", "w+") as f:
-            f.write(str(prompt_dict))
+        # with open("50prompts.json", "w+") as f:
+        #     f.write(str(prompt_dict))
         
         i += 1
         
         # time.sleep(15)
+        
+        
+        
+print(art_prompts)
+print(art_values)

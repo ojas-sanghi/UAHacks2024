@@ -103,14 +103,8 @@ func _on_ai_painting_req_completed(result, response_code, headers, body):
 		var sprite = Sprite2D.new()
 		sprite.set_texture(texture)
 		
-		gen_img = sprite
-		
-		print(sprite.texture.get_width())
-		print(sprite.texture.get_height())
-		
-		sprite.position = Vector2(512, 512)
 		sprite.scale = Vector2(0.5, 0.5)
 		
-		add_child(sprite)
+		gen_img = sprite
 	else:
 		print("The request failed.")

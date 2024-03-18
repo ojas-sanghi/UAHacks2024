@@ -1,202 +1,202 @@
 {
-    "Sunset": [
-        "Common",
-        "assets/ai-img-0.jpg"
-    ],
-    "Love": [
-        "Valuable",
-        "assets/ai-img-1.jpg"
-    ],
-    "Plastic bag": [
-        "Trash",
-        "assets/ai-img-2.jpg"
-    ],
-    "Harmony": [
-        "Valuable",
-        "assets/ai-img-3.jpg"
-    ],
-    "Broken glass": [
-        "Trash",
-        "assets/ai-img-4.jpg"
-    ],
-    "Friendship": [
-        "Valuable",
-        "assets/ai-img-5.jpg"
-    ],
-    "Rusty nail": [
-        "Trash",
-        "assets/ai-img-6.jpg"
-    ],
-    "Transcendence": [
-        "Exceptional",
-        "assets/ai-img-7.jpg"
-    ],
-    "Banana peel": [
-        "Trash",
-        "assets/ai-img-8.jpg"
-    ],
-    "Tranquility": [
-        "Valuable",
-        "assets/ai-img-9.jpg"
-    ],
-    "Crumpled paper": [
-        "Trash",
-        "assets/ai-img-10.jpg"
-    ],
-    "Resilience": [
-        "Valuable",
-        "assets/ai-img-11.jpg"
-    ],
-    "Discarded tire": [
-        "Trash",
-        "assets/ai-img-12.jpg"
-    ],
-    "Enlightenment": [
-        "Exceptional",
-        "assets/ai-img-13.jpg"
-    ],
-    "Empty bottle": [
-        "Trash",
-        "assets/ai-img-14.jpg"
-    ],
-    "Nostalgia": [
-        "Common",
-        "assets/ai-img-15.jpg"
-    ],
-    "Ethereal": [
-        "Exceptional",
-        "assets/ai-img-16.jpg"
-    ],
-    "Caterpillar": [
-        "Common",
-        "assets/ai-img-17.jpg"
-    ],
-    "Ephemeral": [
-        "Valuable",
-        "assets/ai-img-18.jpg"
-    ],
-    "Dandelion": [
-        "Common",
-        "assets/ai-img-19.jpg"
-    ],
-    "Serendipity": [
-        "Valuable",
-        "assets/ai-img-20.jpg"
-    ],
-    "Raindrop": [
-        "Common",
-        "assets/ai-img-21.jpg"
-    ],
-    "Paradigm": [
-        "Valuable",
-        "assets/ai-img-22.jpg"
-    ],
-    "Pebble": [
-        "Common",
-        "assets/ai-img-23.jpg"
-    ],
-    "Quintessence": [
-        "Exceptional",
-        "assets/ai-img-24.jpg"
-    ],
-    "Feather": [
-        "Common",
-        "assets/ai-img-25.jpg"
-    ],
-    "Synergy": [
-        "Valuable",
-        "assets/ai-img-26.jpg"
-    ],
-    "Dewdrop": [
-        "Common",
-        "assets/ai-img-27.jpg"
-    ],
-    "Inspiration": [
-        "Valuable",
-        "assets/ai-img-28.jpg"
-    ],
-    "Sunbeam": [
-        "Common",
-        "assets/ai-img-29.jpg"
-    ],
-    "Epiphany": [
-        "Exceptional",
-        "assets/ai-img-30.jpg"
-    ],
-    "Wildflower": [
-        "Common",
-        "assets/ai-img-31.jpg"
-    ],
-    "Metamorphosis": [
-        "Valuable",
-        "assets/ai-img-32.jpg"
-    ],
-    "Pollen": [
-        "Common",
-        "assets/ai-img-33.jpg"
-    ],
-    "Euphoria": [
-        "Exceptional",
-        "assets/ai-img-34.jpg"
-    ],
-    "Leaf": [
-        "Common",
-        "assets/ai-img-35.jpg"
-    ],
-    "Eternity": [
-        "Exceptional",
-        "assets/ai-img-36.jpg"
-    ],
-    "Snowflake": [
-        "Common",
-        "assets/ai-img-37.jpg"
-    ],
-    "Enigma": [
-        "Valuable",
-        "assets/ai-img-38.jpg"
-    ],
-    "Butterfly": [
-        "Common",
-        "assets/ai-img-39.jpg"
-    ],
-    "Essence": [
-        "Valuable",
-        "assets/ai-img-40.jpg"
-    ],
-    "Ripple": [
-        "Common",
-        "assets/ai-img-41.jpg"
-    ],
-    "Sublime": [
-        "Exceptional",
-        "assets/ai-img-42.jpg"
-    ],
-    "Acorn": [
-        "Common",
-        "assets/ai-img-43.jpg"
-    ],
-    "Whimsical": [
-        "Valuable",
-        "assets/ai-img-44.jpg"
-    ],
-    "Driftwood": [
-        "Common",
-        "assets/ai-img-45.jpg"
-    ],
-    "Splendor": [
-        "Valuable",
-        "assets/ai-img-46.jpg"
-    ],
-    "Seashell": [
-        "Common",
-        "assets/ai-img-47.jpg"
-    ],
-    "Ineffable": [
-        "Exceptional",
-        "assets/ai-img-48.jpg"
-    ],
-    "Firefly": [
-        "Common",
-        "assets/ai-img-49.jpg"
-    ]
+	"Sunset": [
+		"Common",
+		"assets/ai-img-0.jpg"
+	],
+	"Love": [
+		"Valuable",
+		"assets/ai-img-1.jpg"
+	],
+	"Plastic bag": [
+		"Trash",
+		"assets/ai-img-2.jpg"
+	],
+	"Harmony": [
+		"Valuable",
+		"assets/ai-img-3.jpg"
+	],
+	"Broken glass": [
+		"Trash",
+		"assets/ai-img-4.jpg"
+	],
+	"Friendship": [
+		"Valuable",
+		"assets/ai-img-5.jpg"
+	],
+	"Rusty nail": [
+		"Trash",
+		"assets/ai-img-6.jpg"
+	],
+	"Transcendence": [
+		"Exceptional",
+		"assets/ai-img-7.jpg"
+	],
+	"Banana peel": [
+		"Trash",
+		"assets/ai-img-8.jpg"
+	],
+	"Tranquility": [
+		"Valuable",
+		"assets/ai-img-9.jpg"
+	],
+	"Crumpled paper": [
+		"Trash",
+		"assets/ai-img-10.jpg"
+	],
+	"Resilience": [
+		"Valuable",
+		"assets/ai-img-11.jpg"
+	],
+	"Discarded tire": [
+		"Trash",
+		"assets/ai-img-12.jpg"
+	],
+	"Enlightenment": [
+		"Exceptional",
+		"assets/ai-img-13.jpg"
+	],
+	"Empty bottle": [
+		"Trash",
+		"assets/ai-img-14.jpg"
+	],
+	"Nostalgia": [
+		"Common",
+		"assets/ai-img-15.jpg"
+	],
+	"Ethereal": [
+		"Exceptional",
+		"assets/ai-img-16.jpg"
+	],
+	"Caterpillar": [
+		"Common",
+		"assets/ai-img-17.jpg"
+	],
+	"Ephemeral": [
+		"Valuable",
+		"assets/ai-img-18.jpg"
+	],
+	"Dandelion": [
+		"Common",
+		"assets/ai-img-19.jpg"
+	],
+	"Serendipity": [
+		"Valuable",
+		"assets/ai-img-20.jpg"
+	],
+	"Raindrop": [
+		"Common",
+		"assets/ai-img-21.jpg"
+	],
+	"Paradigm": [
+		"Valuable",
+		"assets/ai-img-22.jpg"
+	],
+	"Pebble": [
+		"Common",
+		"assets/ai-img-23.jpg"
+	],
+	"Quintessence": [
+		"Exceptional",
+		"assets/ai-img-24.jpg"
+	],
+	"Feather": [
+		"Common",
+		"assets/ai-img-25.jpg"
+	],
+	"Synergy": [
+		"Valuable",
+		"assets/ai-img-26.jpg"
+	],
+	"Dewdrop": [
+		"Common",
+		"assets/ai-img-27.jpg"
+	],
+	"Inspiration": [
+		"Valuable",
+		"assets/ai-img-28.jpg"
+	],
+	"Sunbeam": [
+		"Common",
+		"assets/ai-img-29.jpg"
+	],
+	"Epiphany": [
+		"Exceptional",
+		"assets/ai-img-30.jpg"
+	],
+	"Wildflower": [
+		"Common",
+		"assets/ai-img-31.jpg"
+	],
+	"Metamorphosis": [
+		"Valuable",
+		"assets/ai-img-32.jpg"
+	],
+	"Pollen": [
+		"Common",
+		"assets/ai-img-33.jpg"
+	],
+	"Euphoria": [
+		"Exceptional",
+		"assets/ai-img-34.jpg"
+	],
+	"Leaf": [
+		"Common",
+		"assets/ai-img-35.jpg"
+	],
+	"Eternity": [
+		"Exceptional",
+		"assets/ai-img-36.jpg"
+	],
+	"Snowflake": [
+		"Common",
+		"assets/ai-img-37.jpg"
+	],
+	"Enigma": [
+		"Valuable",
+		"assets/ai-img-38.jpg"
+	],
+	"Butterfly": [
+		"Common",
+		"assets/ai-img-39.jpg"
+	],
+	"Essence": [
+		"Valuable",
+		"assets/ai-img-40.jpg"
+	],
+	"Ripple": [
+		"Common",
+		"assets/ai-img-41.jpg"
+	],
+	"Sublime": [
+		"Exceptional",
+		"assets/ai-img-42.jpg"
+	],
+	"Acorn": [
+		"Common",
+		"assets/ai-img-43.jpg"
+	],
+	"Whimsical": [
+		"Valuable",
+		"assets/ai-img-44.jpg"
+	],
+	"Driftwood": [
+		"Common",
+		"assets/ai-img-45.jpg"
+	],
+	"Splendor": [
+		"Valuable",
+		"assets/ai-img-46.jpg"
+	],
+	"Seashell": [
+		"Common",
+		"assets/ai-img-47.jpg"
+	],
+	"Ineffable": [
+		"Exceptional",
+		"assets/ai-img-48.jpg"
+	],
+	"Firefly": [
+		"Common",
+		"assets/ai-img-49.jpg"
+	]
 }
