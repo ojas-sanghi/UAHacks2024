@@ -1,14 +1,15 @@
 [gd_scene load_steps=7 format=3 uid="uid://c5pa5d366cy0l"]
 
 [ext_resource type="Texture2D" uid="uid://cknvjx1khdds2" path="res://fotor-ai-2024031519140.jpg" id="1_p7ec8"]
+[ext_resource type="Script" path="res://DayManager.gd" id="1_y3866"]
 [ext_resource type="Texture2D" uid="uid://bdmatmhi472s" path="res://icons8-monday-48.png" id="2_6o6ej"]
-[ext_resource type="Script" path="res://FlowContainer.gd" id="3_f1n2g"]
 [ext_resource type="Texture2D" uid="uid://cn5f8j2mn85kq" path="res://light-blue-rounded-square.svg.hi.png" id="4_7igko"]
 [ext_resource type="Texture2D" uid="uid://cqhuy7hvirnhs" path="res://blue-neon-button-glowing-neon-button-png.webp" id="5_v5oxr"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_woj12"]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_y3866")
 
 [node name="Background" type="TextureRect" parent="."]
 self_modulate = Color(1, 1, 1, 0.243137)
@@ -25,27 +26,36 @@ offset_bottom = 56.0
 scale = Vector2(2, 2)
 texture = ExtResource("2_6o6ej")
 
-[node name="FlowContainer" type="FlowContainer" parent="."]
-offset_left = 9.0
-offset_top = 4.0
-offset_right = 155.0
-offset_bottom = 34.0
-script = ExtResource("3_f1n2g")
+[node name="CenterContainerInv" type="CenterContainer" parent="."]
+offset_top = 22.0
+offset_right = 1918.0
+offset_bottom = 272.0
 
-[node name="Control" type="Control" parent="FlowContainer"]
+[node name="InventoryBackground" type="TextureRect" parent="CenterContainerInv"]
+custom_minimum_size = Vector2(900, 250)
 layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="FlowContainer/Control"]
-layout_mode = 0
-offset_right = 600.0
-offset_bottom = 600.0
-scale = Vector2(0.25, 0.2)
+size_flags_horizontal = 3
+size_flags_vertical = 3
 texture = ExtResource("4_7igko")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="FlowContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainerInv"]
+custom_minimum_size = Vector2(800, 225)
 layout_mode = 2
-text = "            Letters          "
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="CenterContainerInv/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Letter Inventory:"
+horizontal_alignment = 1
+
+[node name="LetterInventoryFlowContainer" type="FlowContainer" parent="CenterContainerInv/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 100)
+layout_mode = 2
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 6
+alignment = 1
 
 [node name="InputFieldTextureRect" type="TextureRect" parent="."]
 offset_left = 308.0
