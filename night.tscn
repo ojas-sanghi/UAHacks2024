@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cm0j4r0ifp7yf"]
+[gd_scene load_steps=4 format=3 uid="uid://cm0j4r0ifp7yf"]
 
 [ext_resource type="Script" path="res://NightManager.gd" id="1_f3jum"]
 [ext_resource type="Texture2D" uid="uid://bdmatmhi472s" path="res://icons8-monday-48.png" id="1_wqdqo"]
+[ext_resource type="Texture2D" uid="uid://djqi3db6drpce" path="res://fotor-ai-20240317212022.jpg" id="3_xoen5"]
 
 [node name="Night" type="Node2D"]
 script = ExtResource("1_f3jum")
@@ -133,3 +134,10 @@ offset_right = 1906.0
 offset_bottom = 218.0
 theme_override_font_sizes/font_size = 36
 text = "End Night"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.71, 0.71)
+texture = ExtResource("3_xoen5")
