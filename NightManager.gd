@@ -96,8 +96,13 @@ func display_ai_artwork():
 	
 	for i in range(0, 10):
 		rng.randomize()
-		var rand_index = rng.randi_range(0, 49)
+		var rand_index = rng.randi_range(0, AiArtData.artwork.size() - 1)
 		print(rand_index)
+		
+		if rand_index in steal_shown_art:
+			i -= 1
+			continue
+		
 		steal_shown_art.append(rand_index)
 		var file = AiArtData.artwork[rand_index]
 		var image = Image.load_from_file(file)

@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cn5f8j2mn85kq" path="res://assets/light-blue-rounded-square.svg.hi.png" id="4_7igko"]
 [ext_resource type="Texture2D" uid="uid://cqhuy7hvirnhs" path="res://assets/blue-neon-button-glowing-neon-button-png.webp" id="5_v5oxr"]
 
-[node name="Node2D" type="Node2D"]
+[node name="DaySceneNode2D" type="Node2D"]
 script = ExtResource("1_y3866")
 
 [node name="DayNumberLabel" type="Label" parent="."]
