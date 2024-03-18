@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fn0vkxesaa87"
-path="res://.godot/imported/icons8-tuesday-48.png-73c40914db0eec7be8b6b5aedf7a6140.ctex"
+uid="uid://d0ex0wy5k0hgp"
+path="res://.godot/imported/icons8-friday-48.png-0cb5260afc581aa25ebaf5d27d5f670c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icons8-tuesday-48.png"
-dest_files=["res://.godot/imported/icons8-tuesday-48.png-73c40914db0eec7be8b6b5aedf7a6140.ctex"]
+source_file="res://assets/icons8-friday-48.png"
+dest_files=["res://.godot/imported/icons8-friday-48.png-0cb5260afc581aa25ebaf5d27d5f670c.ctex"]
 
 [params]
 

@@ -1,124 +1,326 @@
-[gd_scene load_steps=4 format=3 uid="uid://cm0j4r0ifp7yf"]
+[gd_scene load_steps=7 format=3 uid="uid://cm0j4r0ifp7yf"]
 
 [ext_resource type="Script" path="res://NightManager.gd" id="1_f3jum"]
-[ext_resource type="Texture2D" uid="uid://bdmatmhi472s" path="res://icons8-monday-48.png" id="1_wqdqo"]
-[ext_resource type="Texture2D" uid="uid://djqi3db6drpce" path="res://fotor-ai-20240317212022.jpg" id="3_xoen5"]
+[ext_resource type="Texture2D" uid="uid://bdmatmhi472s" path="res://assets/icons8-monday-48.png" id="1_wqdqo"]
+[ext_resource type="Texture2D" uid="uid://djqi3db6drpce" path="res://assets/fotor-ai-20240317212022.jpg" id="3_xoen5"]
+[ext_resource type="Texture2D" uid="uid://cpygx0orlja5a" path="res://assets/ai-img-1.jpg" id="4_46dmk"]
 
-[node name="Night" type="Node2D"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_r60p2"]
+load_path = "res://.godot/imported/ai-img-1.jpg-b5447d8b75b42480e56107caa45fc707.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4671h"]
+load_path = "res://.godot/imported/ai-img-1.jpg-b5447d8b75b42480e56107caa45fc707.ctex"
+
+[node name="Night" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_f3jum")
+metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_direction = 3
-offset_left = -1910.0
-offset_top = 21.0
-offset_right = -1731.0
-offset_bottom = 125.0
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.994
+anchor_bottom = 1.0
+offset_right = 779.52
+offset_bottom = 456.0
+scale = Vector2(0.71, 0.71)
+mouse_filter = 2
+texture = ExtResource("3_xoen5")
 
-[node name="Date" type="TextureRect" parent="HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("1_wqdqo")
-expand_mode = 2
+size_flags_vertical = 0
+alignment = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-offset_left = 5.0
-offset_top = 28.0
-offset_right = 1920.0
-offset_bottom = 111.0
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 0
 
-[node name="ActionsLabel" type="Label" parent="CenterContainer"]
+[node name="ActionsLabel" type="Label" parent="VBoxContainer/HBoxContainer/CenterContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "Actions: 0"
 
-[node name="TabContainer" type="TabContainer" parent="."]
-offset_left = 11.0
-offset_top = 177.0
-offset_right = 1907.0
-offset_bottom = 1061.0
+[node name="EndNightButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "End Night"
+
+[node name="Date" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("1_wqdqo")
+expand_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
 tab_alignment = 1
+clip_tabs = false
 
-[node name="SellArtworkTab" type="MarginContainer" parent="TabContainer"]
+[node name="SellArtworkTab" type="MarginContainer" parent="VBoxContainer/TabContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/SellArtworkTab"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/SellArtworkTab"]
 layout_mode = 2
 theme_override_constants/separation = 25
 alignment = 1
 
-[node name="MoneyLabel" type="Label" parent="TabContainer/SellArtworkTab/VBoxContainer"]
+[node name="MoneyLabel" type="Label" parent="VBoxContainer/TabContainer/SellArtworkTab/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Money: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SellTextureRect" type="TextureRect" parent="TabContainer/SellArtworkTab/VBoxContainer"]
+[node name="SellTextureRect" type="TextureRect" parent="VBoxContainer/TabContainer/SellArtworkTab/VBoxContainer"]
 custom_minimum_size = Vector2(2.08165e-12, 400)
 layout_mode = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/SellArtworkTab/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/SellArtworkTab/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 50
 alignment = 1
 
-[node name="LeftButton" type="Button" parent="TabContainer/SellArtworkTab/VBoxContainer/HBoxContainer"]
+[node name="LeftButton" type="Button" parent="VBoxContainer/TabContainer/SellArtworkTab/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(350, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Previous"
 
-[node name="RightButton" type="Button" parent="TabContainer/SellArtworkTab/VBoxContainer/HBoxContainer"]
+[node name="RightButton" type="Button" parent="VBoxContainer/TabContainer/SellArtworkTab/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(350, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Next"
 
-[node name="SellCurrentButton" type="Button" parent="TabContainer/SellArtworkTab/VBoxContainer"]
+[node name="SellCurrentButton" type="Button" parent="VBoxContainer/TabContainer/SellArtworkTab/VBoxContainer"]
 custom_minimum_size = Vector2(750, 150)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 48
 text = "Sell Current Artwork"
 
-[node name="StealArtworkTab" type="MarginContainer" parent="TabContainer"]
+[node name="StealArtworkTab" type="MarginContainer" parent="VBoxContainer/TabContainer"]
 visible = false
+custom_minimum_size = Vector2(1920, 935)
 layout_mode = 2
 theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
+theme_override_constants/margin_top = 75
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/StealArtworkTab"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/StealArtworkTab"]
 layout_mode = 2
 theme_override_constants/separation = 25
 
-[node name="MoneyLabel" type="Label" parent="TabContainer/StealArtworkTab/VBoxContainer"]
+[node name="MoneyLabel" type="Label" parent="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 0
 theme_override_font_sizes/font_size = 40
 text = "Money: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StealTextureRect" type="TextureRect" parent="TabContainer/StealArtworkTab/VBoxContainer"]
-custom_minimum_size = Vector2(2.08165e-12, 400)
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer"]
+clip_contents = true
 layout_mode = 2
-expand_mode = 1
-stretch_mode = 5
+size_flags_vertical = 3
+columns = 5
 
-[node name="StealInfoLabel" type="Label" parent="TabContainer/StealArtworkTab/VBoxContainer"]
+[node name="Button" type="Button" parent="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_r60p2")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Button2" type="Button" parent="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer/Button2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_4671h")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Button3" type="Button" parent="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer/Button3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_46dmk")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Button4" type="Button" parent="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer/Button4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_46dmk")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Button5" type="Button" parent="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer/Button5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_46dmk")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Button6" type="Button" parent="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer/Button6"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_46dmk")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Button7" type="Button" parent="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer/Button7"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_46dmk")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Button8" type="Button" parent="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer/Button8"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_46dmk")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Button9" type="Button" parent="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer/Button9"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_46dmk")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Button10" type="Button" parent="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer/Button10"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_46dmk")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="StealInfoLabel" type="Label" parent="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "To attempt to steal this artwork, try to guess the prompt keyword you think it refers to."
 horizontal_alignment = 1
 
-[node name="StealGuessField" type="LineEdit" parent="TabContainer/StealArtworkTab/VBoxContainer"]
+[node name="StealGuessField" type="LineEdit" parent="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer"]
 custom_minimum_size = Vector2(700, 50)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -127,18 +329,13 @@ placeholder_text = "Type your guess..."
 alignment = 1
 caret_blink = true
 
-[node name="EndNightButton" type="Button" parent="."]
-offset_left = 1715.0
-offset_top = 153.0
-offset_right = 1906.0
-offset_bottom = 218.0
-theme_override_font_sizes/font_size = 36
-text = "End Night"
-
-[node name="TextureRect" type="TextureRect" parent="."]
-z_index = -1
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(0.71, 0.71)
-mouse_filter = 2
-texture = ExtResource("3_xoen5")
+[connection signal="pressed" from="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer/Button6" to="." method="_on_button_6_pressed"]
+[connection signal="pressed" from="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer/Button7" to="." method="_on_button_7_pressed"]
+[connection signal="pressed" from="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer/Button8" to="." method="_on_button_8_pressed"]
+[connection signal="pressed" from="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer/Button9" to="." method="_on_button_9_pressed"]
+[connection signal="pressed" from="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer/Button10" to="." method="_on_button_10_pressed"]

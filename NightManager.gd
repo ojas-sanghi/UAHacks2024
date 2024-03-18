@@ -1,18 +1,21 @@
-extends Node2D
+extends Control
 
 var actions = 3
 var current_user_art_index = 0
+
+var steal_selected_art = null
+var steal_shown_art = []
 
 func _ready():
 	update_actions_label()
 	update_money_label()
 	
-	$EndNightButton.pressed.connect(end_current_night)
+	$VBoxContainer/HBoxContainer/EndNightButton.pressed.connect(end_current_night)
 	
 	# Sell
-	var left = $"TabContainer/SellArtworkTab/VBoxContainer/HBoxContainer/LeftButton"
-	var right = $"TabContainer/SellArtworkTab/VBoxContainer/HBoxContainer/RightButton"
-	var sell = $"TabContainer/SellArtworkTab/VBoxContainer/SellCurrentButton"
+	var left = $VBoxContainer/TabContainer/SellArtworkTab/VBoxContainer/HBoxContainer/LeftButton
+	var right = $VBoxContainer/TabContainer/SellArtworkTab/VBoxContainer/HBoxContainer/RightButton
+	var sell = $VBoxContainer/TabContainer/SellArtworkTab/VBoxContainer/SellCurrentButton
 	
 	left.pressed.connect(shift_user_image_gallery.bind(true))
 	right.pressed.connect(shift_user_image_gallery.bind(false))
@@ -22,7 +25,7 @@ func _ready():
 	display_user_artwork()
 	
 	# Steal
-	var steal_input = $TabContainer/StealArtworkTab/VBoxContainer/StealGuessField
+	var steal_input = $VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/StealGuessField
 	steal_input.text_submitted.connect(accept_steal_guess)
 	
 	display_ai_artwork()
@@ -53,20 +56,20 @@ func use_action():
 		dialog.popup_centered()
 
 func update_actions_label():
-	$CenterContainer/ActionsLabel.text = "Actions: " + str(actions)
+	$VBoxContainer/HBoxContainer/CenterContainer/ActionsLabel.text = "Actions: " + str(actions)
 	
 func update_money_label():
-	$"TabContainer/SellArtworkTab/VBoxContainer/MoneyLabel".text = "Money: " + str(PlayerData.money)
+	$VBoxContainer/TabContainer/SellArtworkTab/VBoxContainer/MoneyLabel.text = "Money: " + str(PlayerData.money)
 	
 func accept_steal_guess(guess):
 	if actions <= 0:
 		return
 		
-	var steal_input = $TabContainer/StealArtworkTab/VBoxContainer/StealGuessField
+	var steal_input = $VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/StealGuessField
 	steal_input.clear()
-
+	
 	# TODO: need to update with the real prompts
-	var current = AiArtData.artwork[0]
+	var current = AiArtData.artwork[steal_shown_art[steal_selected_art]]
 	var real_prompt = AiArtData.art_prompts[current]
 	
 	# doing this before the logic so the dialog shows up first if this is the last action
@@ -89,17 +92,23 @@ func accept_steal_guess(guess):
 		show_alert("Fail!", "You failed to steal the artwork and have been fined $" + str(loss) + ".")
 	
 func display_ai_artwork():
-	var rect = $TabContainer/StealArtworkTab/VBoxContainer/StealTextureRect
+	var rng = RandomNumberGenerator.new()
 	
-	# this should never run since we'll have 50+ images at all times
-	if AiArtData.artwork.size() == 0:
-		rect.texture = null
-		return
-	
-	var file = AiArtData.artwork[0]
-	var image = Image.load_from_file(file)
-	var texture = ImageTexture.create_from_image(image)
-	rect.texture = texture
+	for i in range(0, 10):
+		rng.randomize()
+		var rand_index = rng.randi_range(0, 49)
+		print(rand_index)
+		steal_shown_art.append(rand_index)
+		var file = AiArtData.artwork[rand_index]
+		var image = Image.load_from_file(file)
+		var texture = ImageTexture.create_from_image(image)
+		
+		var grid = $VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer
+		var buttons = grid.get_children()
+		for button in buttons:
+			var rect: TextureRect = button.get_child(0)
+			rect.texture.resource_local_to_scene = true
+			rect.texture = texture
 	
 func shift_user_image_gallery(left: bool):
 	if (left && current_user_art_index == 0) || (!left && current_user_art_index == PlayerData.owned_art.size() - 1):
@@ -109,7 +118,7 @@ func shift_user_image_gallery(left: bool):
 	display_user_artwork()
 
 func display_user_artwork():
-	var rect = $"TabContainer/SellArtworkTab/VBoxContainer/SellTextureRect"
+	var rect = $VBoxContainer/TabContainer/SellArtworkTab/VBoxContainer/SellTextureRect
 	
 	if PlayerData.owned_art.size() == 0:
 		rect.texture = null
@@ -151,3 +160,54 @@ func show_alert(title, text):
 	dialog.get_ok_button().add_theme_font_size_override("font_size", 36)
 	add_child(dialog)
 	dialog.popup_centered()
+
+
+
+func _on_button_pressed():
+	steal_selected_art = 0
+	print("clicked")
+
+
+func _on_button_2_pressed():
+	steal_selected_art = 1
+	print("clicked1")
+
+
+func _on_button_3_pressed():
+	steal_selected_art = 2
+	print("clicked2")
+
+
+func _on_button_4_pressed():
+	steal_selected_art = 3
+	print("clicked3")
+
+
+func _on_button_5_pressed():
+	steal_selected_art = 4
+	print("clicked4")
+
+
+func _on_button_6_pressed():
+	steal_selected_art = 5
+	print("clicked5")
+
+
+func _on_button_7_pressed():
+	steal_selected_art = 6
+	print("clicked6")
+
+
+func _on_button_8_pressed():
+	steal_selected_art = 7
+	print("clicked7")
+
+
+func _on_button_9_pressed():
+	steal_selected_art = 8
+	print("clicked8")
+
+
+func _on_button_10_pressed():
+	steal_selected_art = 9
+	print("clicked9")

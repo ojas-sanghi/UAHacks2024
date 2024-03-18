@@ -13,16 +13,16 @@ config_version=5
 config/name="UAHacks2024"
 run/main_scene="res://day.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://assets/icon.svg"
 
 [autoload]
 
-PlayerData="*res://PlayerData.gd"
-AILoop="*res://AILoop.tscn"
-MarketTrend="*res://MarketTrend.gd"
-AiArtData="*res://AIArtData.gd"
-SceneChanger="*res://SceneChanger.tscn"
-DaySystem="*res://DaySystem.gd"
+PlayerData="*res://singletons/PlayerData.gd"
+MarketTrend="*res://singletons/MarketTrend.gd"
+AiArtData="*res://singletons/AIArtData.gd"
+SceneChanger="*res://singletons/SceneChanger.tscn"
+DaySystem="*res://singletons/DaySystem.gd"
+AILoop="*res://singletons/AILoop.gd"
 
 [display]
 

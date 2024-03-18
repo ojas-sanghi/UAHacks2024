@@ -1,9 +1,20 @@
 extends Node
 
+var word_value_http: HTTPRequest
+var ai_gen_http: HTTPRequest
+var ai_painting_http: HTTPRequest
+
 func _ready():
-	$WordValue.request_completed.connect(_on_word_value_req_completed)
-	$AIGenPrompt.request_completed.connect(_on_ai_gen_prompt_req_completed)
-	$AIPainting.request_completed.connect(_on_ai_painting_req_completed)
+	word_value_http = HTTPRequest.new()
+	add_child(word_value_http)
+	ai_gen_http = HTTPRequest.new()
+	add_child(ai_gen_http)
+	ai_painting_http = HTTPRequest.new()
+	add_child(ai_painting_http)
+	
+	word_value_http.request_completed.connect(_on_word_value_req_completed)
+	ai_gen_http.request_completed.connect(_on_ai_gen_prompt_req_completed)
+	ai_painting_http.request_completed.connect(_on_ai_painting_req_completed)
 	
 var prompt_word := ""
 var gen_img: Sprite2D = null
@@ -33,7 +44,7 @@ func get_word_value():
 	}
 	var body_string := JSON.stringify(body)
 	print(body_string)
-	var req = $WordValue.request("https://api.anthropic.com/v1/messages", headers, HTTPClient.METHOD_POST, body_string)
+	var req = word_value_http.request("https://api.anthropic.com/v1/messages", headers, HTTPClient.METHOD_POST, body_string)
 	
 	# Check for errors
 	if req != OK:
@@ -66,7 +77,7 @@ func get_ai_gen_prompt(value):
 	}
 	var body_string := JSON.stringify(body)
 	print(body_string)
-	var req = $AIGenPrompt.request("https://api.anthropic.com/v1/messages", headers, HTTPClient.METHOD_POST, body_string)
+	var req = ai_gen_http.request("https://api.anthropic.com/v1/messages", headers, HTTPClient.METHOD_POST, body_string)
 	
 	# Check for errors
 	if req != OK:
@@ -94,7 +105,7 @@ func get_ai_painting(ai_gen_prompt):
 	
 	var body_string := JSON.stringify(data)
 	print(body_string)
-	var req = $AIPainting.request(url, headers, HTTPClient.METHOD_POST, body_string)
+	var req = ai_painting_http.request(url, headers, HTTPClient.METHOD_POST, body_string)
 	
 	# Check for errors
 	if req != OK:

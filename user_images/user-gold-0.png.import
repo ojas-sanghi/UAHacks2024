@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqhuy7hvirnhs"
-path="res://.godot/imported/blue-neon-button-glowing-neon-button-png.webp-ee2f1bfb08728a7b49359f8793f6a0c0.ctex"
+uid="uid://d104p4g6spy6f"
+path="res://.godot/imported/user-gold-0.png-9ccc680cd8f2e1c160dff1a33d91cdc0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://blue-neon-button-glowing-neon-button-png.webp"
-dest_files=["res://.godot/imported/blue-neon-button-glowing-neon-button-png.webp-ee2f1bfb08728a7b49359f8793f6a0c0.ctex"]
+source_file="res://user_images/user-gold-0.png"
+dest_files=["res://.godot/imported/user-gold-0.png-9ccc680cd8f2e1c160dff1a33d91cdc0.ctex"]
 
 [params]
 

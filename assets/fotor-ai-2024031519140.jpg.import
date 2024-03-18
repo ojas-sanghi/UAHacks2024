@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdmatmhi472s"
-path="res://.godot/imported/icons8-monday-48.png-1867be5f6a4c6333311fbcde3bb1f1c0.ctex"
+uid="uid://cknvjx1khdds2"
+path="res://.godot/imported/fotor-ai-2024031519140.jpg-34689daf69fde72f0a926f381033f483.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icons8-monday-48.png"
-dest_files=["res://.godot/imported/icons8-monday-48.png-1867be5f6a4c6333311fbcde3bb1f1c0.ctex"]
+source_file="res://assets/fotor-ai-2024031519140.jpg"
+dest_files=["res://.godot/imported/fotor-ai-2024031519140.jpg-34689daf69fde72f0a926f381033f483.ctex"]
 
 [params]
 

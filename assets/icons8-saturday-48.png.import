@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5t1ekpgf5i7f"
-path="res://.godot/imported/StickersRoundedSquare-1.png-58ccec421c24924ac7917c1ec0336be9.ctex"
+uid="uid://bmuliv86pey3r"
+path="res://.godot/imported/icons8-saturday-48.png-deaef5d7bdd3f5aa6007d00412f52756.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://StickersRoundedSquare-1.png"
-dest_files=["res://.godot/imported/StickersRoundedSquare-1.png-58ccec421c24924ac7917c1ec0336be9.ctex"]
+source_file="res://assets/icons8-saturday-48.png"
+dest_files=["res://.godot/imported/icons8-saturday-48.png-deaef5d7bdd3f5aa6007d00412f52756.ctex"]
 
 [params]
 
