@@ -14,6 +14,8 @@ func _ready():
 	$LetterStoreButton.pressed.connect(show_letter_store)
 	
 	$GeneratingLabel.visible = false
+	
+	$DayNumberLabel.text = "Day " + str(DaySystem.day_number)
 
 func show_letter_store():
 	SceneChanger.go_to_scene("res://letter_store.tscn")

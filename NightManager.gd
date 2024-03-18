@@ -11,6 +11,7 @@ func _ready():
 	update_money_label()
 	
 	$VBoxContainer/HBoxContainer/EndNightButton.pressed.connect(end_current_night)
+	$VBoxContainer/HBoxContainer/NightNumberLabel.text = "Night " + str(DaySystem.day_number)
 	
 	# Sell
 	var left = $VBoxContainer/TabContainer/SellArtworkTab/VBoxContainer/HBoxContainer/LeftButton
