@@ -7,11 +7,18 @@ func _ready():
 	
 var prompt_word := ""
 var gen_img: Sprite2D = null
+var prompt_value := ""
 
 func generate_image_from_prompt(word):
 	gen_img = null
 	prompt_word = word
+	prompt_value = ""
+	
+	get_word_value()
 	# to get img, do `while (true): if (gen_img != null): <use img>`
+	
+	while gen_img == null:
+		await get_tree().create_timer(1.0).timeout
 	
 func get_word_value():
 	var headers := ["x-api-key: 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", "anthropic-version: 2023-06-01", "content-type: application/json"]
@@ -41,6 +48,7 @@ func _on_word_value_req_completed(result, response_code, headers, body):
 		var body_response = json.parse_string(body.get_string_from_utf8())
 		
 		var value = body_response["content"][0]["text"]
+		prompt_value = value
 		get_ai_gen_prompt(value)
 	else:
 		print("The request failed.")
