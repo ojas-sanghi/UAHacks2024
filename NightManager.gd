@@ -80,7 +80,7 @@ func accept_steal_guess(guess):
 		AiArtData.remove_first()
 		display_ai_artwork()
 		
-		if PlayerData.owned_art.size() == 0:
+		if PlayerData.owned_art.size() == 1:
 			display_user_artwork()
 		
 		show_alert("Success!", "You successfully stole a piece of artwork.")

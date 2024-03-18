@@ -165,7 +165,7 @@ columns = 5
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/outline_size = 0
+theme_override_constants/outline_size = 1
 expand_icon = true
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer/Button"]
@@ -183,7 +183,7 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/outline_size = 0
+theme_override_constants/outline_size = 1
 expand_icon = true
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer/Button2"]
@@ -201,7 +201,7 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/outline_size = 0
+theme_override_constants/outline_size = 1
 expand_icon = true
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer/Button3"]
@@ -219,7 +219,7 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/outline_size = 0
+theme_override_constants/outline_size = 1
 expand_icon = true
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer/Button4"]
@@ -237,7 +237,7 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/outline_size = 0
+theme_override_constants/outline_size = 1
 expand_icon = true
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer/Button5"]
@@ -256,7 +256,7 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/outline_size = 0
+theme_override_constants/outline_size = 1
 expand_icon = true
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer/Button6"]
@@ -274,7 +274,7 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/outline_size = 0
+theme_override_constants/outline_size = 1
 expand_icon = true
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer/Button7"]
@@ -292,7 +292,7 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/outline_size = 0
+theme_override_constants/outline_size = 1
 expand_icon = true
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer/Button8"]
@@ -310,7 +310,7 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/outline_size = 0
+theme_override_constants/outline_size = 1
 expand_icon = true
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer/Button9"]
@@ -328,7 +328,7 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/outline_size = 0
+theme_override_constants/outline_size = 1
 expand_icon = true
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer/Button10"]
