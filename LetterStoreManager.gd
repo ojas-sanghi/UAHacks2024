@@ -34,7 +34,6 @@ func _ready():
 		button.text = l
 		button.pressed.connect(handle_button_input.bind(l))
 		button.add_theme_font_size_override("font_size", 40)
-		#button.set_custom_minimum_size(Vector2(275, 115))
 		
 		vbox.add_child(button)
 		vbox.add_child(cost)

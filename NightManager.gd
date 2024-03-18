@@ -9,9 +9,6 @@ func _ready():
 	
 	$EndNightButton.pressed.connect(end_current_night)
 	
-	# testing
-	PlayerData.owned_art.append("genimg.jpg")
-	
 	# Sell
 	var left = $"TabContainer/SellArtworkTab/VBoxContainer/HBoxContainer/LeftButton"
 	var right = $"TabContainer/SellArtworkTab/VBoxContainer/HBoxContainer/RightButton"
