@@ -24,6 +24,7 @@ z_index = -2
 offset_right = 4499.0
 offset_bottom = 2523.0
 scale = Vector2(0.427, 0.428)
+mouse_filter = 2
 texture = ExtResource("1_p7ec8")
 
 [node name="Date" type="TextureRect" parent="."]
