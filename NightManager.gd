@@ -69,7 +69,6 @@ func accept_steal_guess(guess):
 	var steal_input = $VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/StealGuessField
 	steal_input.clear()
 	
-	# TODO: need to update with the real prompts
 	var current = AiArtData.artwork[steal_shown_art[steal_selected_art]]
 	var real_prompt = AiArtData.art_prompts[current]
 	
@@ -105,11 +104,10 @@ func display_ai_artwork():
 		var texture = ImageTexture.create_from_image(image)
 		
 		var grid = $VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer
-		var buttons = grid.get_children()
-		for button in buttons:
-			var rect: TextureRect = button.get_child(0)
-			rect.texture.resource_local_to_scene = true
-			rect.texture = texture
+		var button = grid.get_children()[i]
+		var rect: TextureRect = button.get_child(0)
+		rect.texture.resource_local_to_scene = true
+		rect.texture = texture
 	
 func shift_user_image_gallery(left: bool):
 	if (left && current_user_art_index == 0) || (!left && current_user_art_index == PlayerData.owned_art.size() - 1):
