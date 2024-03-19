@@ -105,6 +105,8 @@ func accept_steal_guess(guess):
 		if PlayerData.money == 0:
 			$VBoxContainer/TabContainer.current_tab = 0
 			check_can_steal()
+		
+		update_money_label()
 	
 func display_ai_artwork():
 	var rng = RandomNumberGenerator.new()
