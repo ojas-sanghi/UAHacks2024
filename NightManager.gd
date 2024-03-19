@@ -7,12 +7,20 @@ var steal_selected_art = null
 var steal_shown_art = []
 
 func _ready():
+	PlayerData.money = 3
 	update_actions_label()
 	update_money_label()
 	check_can_steal()
 	
 	$VBoxContainer/HBoxContainer/EndNightButton.pressed.connect(end_current_night)
 	$VBoxContainer/HBoxContainer/NightNumberLabel.text = "Night " + str(DaySystem.day_number)
+	
+	$VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/StealGuessField.visible = false
+	
+	var grid = $VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/GridContainer
+	for i in range(0, grid.get_children().size()):
+		var button = grid.get_children()[i]
+		button.pressed.connect(on_ai_gallery_button_pressed.bind(i))
 	
 	# Sell
 	var left = $VBoxContainer/TabContainer/SellArtworkTab/VBoxContainer/HBoxContainer/LeftButton
@@ -177,51 +185,8 @@ func show_alert(title, text):
 func check_can_steal():
 	$VBoxContainer/TabContainer.set_tab_hidden(1, PlayerData.money == 0)
 
-func _on_button_pressed():
-	steal_selected_art = 0
-	print("clicked")
-
-
-func _on_button_2_pressed():
-	steal_selected_art = 1
-	print("clicked1")
-
-
-func _on_button_3_pressed():
-	steal_selected_art = 2
-	print("clicked2")
-
-
-func _on_button_4_pressed():
-	steal_selected_art = 3
-	print("clicked3")
-
-
-func _on_button_5_pressed():
-	steal_selected_art = 4
-	print("clicked4")
-
-
-func _on_button_6_pressed():
-	steal_selected_art = 5
-	print("clicked5")
-
-
-func _on_button_7_pressed():
-	steal_selected_art = 6
-	print("clicked6")
-
-
-func _on_button_8_pressed():
-	steal_selected_art = 7
-	print("clicked7")
-
-
-func _on_button_9_pressed():
-	steal_selected_art = 8
-	print("clicked8")
-
-
-func _on_button_10_pressed():
-	steal_selected_art = 9
-	print("clicked9")
+func on_ai_gallery_button_pressed(index: int):
+	steal_selected_art = index
+	print("AI Gallery: Clicked " + str(index))
+	
+	$VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/StealGuessField.visible = true
