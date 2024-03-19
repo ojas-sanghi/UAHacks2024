@@ -96,7 +96,7 @@ func accept_steal_guess(guess):
 		
 		show_alert("Success!", "You successfully stole a piece of artwork.")
 	else:
-		var loss = min(PlayerData.money, randi_range(50, 100));
+		var loss = min(PlayerData.money, max(10, PlayerData.money * 0.1));
 		
 		PlayerData.money -= loss
 		
