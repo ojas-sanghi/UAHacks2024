@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://ssh7kjqllqxq"]
+[gd_scene load_steps=3 format=3 uid="uid://ssh7kjqllqxq"]
 
 [ext_resource type="Texture2D" uid="uid://d2psruosfo647" path="res://fotor-ai-20240318194824.jpg" id="1_2jad7"]
+[ext_resource type="Script" path="res://GameEnd.gd" id="1_87nr0"]
 
 [node name="GameEnd" type="Node2D"]
+script = ExtResource("1_87nr0")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = 0.999999
@@ -11,3 +13,22 @@ offset_right = 2689.0
 offset_bottom = 1541.0
 scale = Vector2(0.72, 0.72)
 texture = ExtResource("1_2jad7")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_right = 1936.0
+offset_bottom = 1111.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 110
+
+[node name="InfoLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 128
+text = "Week Complete!"
+
+[node name="ScoreLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "Money earned:"
+horizontal_alignment = 1
