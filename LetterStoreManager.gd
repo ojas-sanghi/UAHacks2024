@@ -7,8 +7,7 @@ var inventory_nodes = {}
 func _ready():
 	$ReturnButton.pressed.connect(return_to_day)
 	
-	var money_label = get_child(2)
-	money_label.text = "Money: " + str(PlayerData.money)
+	update_money_label()
 	
 	var store_grid = $ScrollContainer/StoreGridContainer
 	var inventory_container = $InventoryFlowContainer
@@ -52,6 +51,9 @@ func _ready():
 func return_to_day():
 	SceneChanger.go_to_scene("res://day.tscn")
 	
+func update_money_label():
+	$MoneyLabel.text = "Money: $" + str(PlayerData.money)
+	
 func handle_button_input(letter):
 	if PlayerData.money >= LETTER_COSTS[letter]:
 		PlayerData.money -= LETTER_COSTS[letter]
@@ -59,8 +61,7 @@ func handle_button_input(letter):
 		
 		inventory_nodes[letter].text = letter + " – " + str(PlayerData.letters[letter])
 		
-		var money_label = get_child(2)
-		money_label.text = "Money: " + str(PlayerData.money)
+		update_money_label()
 	else:
 		var dialog = AcceptDialog.new()
 		dialog.dialog_text = "You do not have enough money to purchase that letter."

@@ -69,7 +69,7 @@ func update_actions_label():
 	$VBoxContainer/HBoxContainer/CenterContainer/ActionsLabel.text = "Actions: " + str(actions)
 	
 func update_money_label():
-	var money_text = "Money: " + str(PlayerData.money)
+	var money_text = "Money: $" + str(PlayerData.money)
 	$VBoxContainer/TabContainer/SellArtworkTab/VBoxContainer/MoneyLabel.text = money_text
 	$VBoxContainer/TabContainer/StealArtworkTab/VBoxContainer/MoneyLabel.text = money_text
 	
