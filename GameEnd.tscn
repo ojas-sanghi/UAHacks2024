@@ -1,3 +1,13 @@
-[gd_scene format=3 uid="uid://ssh7kjqllqxq"]
+[gd_scene load_steps=2 format=3 uid="uid://ssh7kjqllqxq"]
+
+[ext_resource type="Texture2D" uid="uid://d2psruosfo647" path="res://fotor-ai-20240318194824.jpg" id="1_2jad7"]
 
 [node name="GameEnd" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 0.999999
+offset_top = 5.0
+offset_right = 2689.0
+offset_bottom = 1541.0
+scale = Vector2(0.72, 0.72)
+texture = ExtResource("1_2jad7")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ba1o3uf6o36io"]
+[gd_scene load_steps=3 format=3 uid="uid://ba1o3uf6o36io"]
 
 [ext_resource type="Script" path="res://MainMenu.gd" id="1_eb1fh"]
+[ext_resource type="Texture2D" uid="uid://cidtjrd5fvuah" path="res://fotor-ai-20240318193837.jpg" id="2_0kr0e"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_eb1fh")
@@ -34,3 +35,11 @@ custom_minimum_size = Vector2(2.08165e-12, 200)
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Start!"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.72, 0.72)
+mouse_filter = 2
+texture = ExtResource("2_0kr0e")
