@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cm0j4r0ifp7yf"]
+[gd_scene load_steps=8 format=3 uid="uid://cm0j4r0ifp7yf"]
 
 [ext_resource type="Script" path="res://NightManager.gd" id="1_f3jum"]
 [ext_resource type="Texture2D" uid="uid://bdmatmhi472s" path="res://assets/icons8-monday-48.png" id="1_wqdqo"]
 [ext_resource type="Texture2D" uid="uid://djqi3db6drpce" path="res://assets/fotor-ai-20240317212022.jpg" id="3_xoen5"]
 [ext_resource type="Texture2D" uid="uid://cpygx0orlja5a" path="res://assets/ai-img-1.jpg" id="4_46dmk"]
+[ext_resource type="Script" path="res://Date.gd" id="4_vodxs"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_r60p2"]
 load_path = "res://.godot/imported/ai-img-1.jpg-b5447d8b75b42480e56107caa45fc707.ctex"
@@ -75,6 +76,7 @@ layout_mode = 2
 size_flags_horizontal = 8
 texture = ExtResource("1_wqdqo")
 expand_mode = 2
+script = ExtResource("4_vodxs")
 
 [node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
 layout_mode = 2
