@@ -88,6 +88,8 @@ func accept_steal_guess(guess):
 	
 	if guess.to_lower() == real_prompt.to_lower():
 		PlayerData.owned_art.append(current)
+		PlayerData.art_values[current] = AiArtData.art_values[current]
+		
 		AiArtData.remove_first()
 		display_ai_artwork()
 		
@@ -157,8 +159,15 @@ func sell_current_art():
 	elif actions <= 0:
 		return
 	
-	# TODO: need to get the AI-determined values
-	var sell_amount = randi_range(50, 100)
+	var ai_value: String = PlayerData.art_values[PlayerData.owned_art[current_user_art_index]]
+	ai_value = ai_value.to_lower().replace(".", "")
+	
+	var sell_amount = 0
+	if ai_value in PlayerData.art_value_sell_amounts:
+		sell_amount = PlayerData.art_value_sell_amounts[ai_value]
+	else:
+		print("Unknown art value: \"" + ai_value + "\", defaulting to a random integer")
+		sell_amount = randi_range(10, 25)
 	
 	PlayerData.money += sell_amount
 	PlayerData.owned_art.remove_at(current_user_art_index)
