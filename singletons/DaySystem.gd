@@ -19,7 +19,7 @@ func _on_start_new_day():
 	
 	MarketTrend.get_latest_market_trend()
 	while MarketTrend.latest_trend == null:
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(0.4).timeout
 		
 	print(MarketTrend.latest_trend_multiplier)
 	
