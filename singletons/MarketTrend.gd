@@ -22,11 +22,6 @@ func _ready():
 func get_latest_market_trend():
 	latest_trend = null
 	
-	# TEMPORARY!!
-	latest_trend = -7
-	latest_trend_multiplier = (1 + (latest_trend / 100.0))
-	return
-	
 	messages.append({"role": "user", "content": [{"type": "text", "text": "Next"}]})
 	
 	var headers := ["x-api-key: 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", "anthropic-version: 2023-06-01", "content-type: application/json"]
