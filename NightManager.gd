@@ -168,6 +168,8 @@ func sell_current_art():
 	else:
 		print("Unknown art value: \"" + ai_value + "\", defaulting to a random integer")
 		sell_amount = randi_range(10, 25)
+		
+	sell_amount *= MarketTrend.latest_trend_multiplier
 	
 	PlayerData.money += sell_amount
 	PlayerData.owned_art.remove_at(current_user_art_index)
