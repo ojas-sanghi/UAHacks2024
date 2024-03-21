@@ -12,9 +12,8 @@ func add_claude_message(value):
 
 func _ready():
 	market_trend_http = HTTPRequest.new()
-	add_child(market_trend_http)
-	
 	market_trend_http.request_completed.connect(_on_market_trend_req_completed)
+	add_child(market_trend_http)
 	
 	get_latest_market_trend()
 	# to get tremd, do `while (true): if (latest_trend != null): <use trend>`
@@ -46,7 +45,7 @@ func _on_market_trend_req_completed(result, response_code, headers, body):
 		var json = JSON.new()
 		var body_string = body.get_string_from_utf8()
 		var body_response = json.parse_string(body.get_string_from_utf8())
-		
+		print(body_response)
 		var value = body_response["content"][0]["text"]
 		add_claude_message(value)
 		

@@ -6,15 +6,14 @@ var ai_painting_http: HTTPRequest
 
 func _ready():
 	word_value_http = HTTPRequest.new()
-	add_child(word_value_http)
 	ai_gen_http = HTTPRequest.new()
-	add_child(ai_gen_http)
 	ai_painting_http = HTTPRequest.new()
-	add_child(ai_painting_http)
-	
 	word_value_http.request_completed.connect(_on_word_value_req_completed)
 	ai_gen_http.request_completed.connect(_on_ai_gen_prompt_req_completed)
 	ai_painting_http.request_completed.connect(_on_ai_painting_req_completed)
+	add_child(word_value_http)
+	add_child(ai_gen_http)
+	add_child(ai_painting_http)
 	
 var prompt_word := ""
 var gen_img: Sprite2D = null
@@ -57,7 +56,6 @@ func _on_word_value_req_completed(result, response_code, headers, body):
 		var json = JSON.new()
 		var body_string = body.get_string_from_utf8()
 		var body_response = json.parse_string(body.get_string_from_utf8())
-		
 		var value = body_response["content"][0]["text"]
 		prompt_value = value
 		get_ai_gen_prompt(value)
